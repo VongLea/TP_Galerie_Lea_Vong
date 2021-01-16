@@ -23,11 +23,7 @@ public class Transaction {
     @NonNull
     private LocalDate venduLe;
     
-    @Getter
-    LocalDate getPrixVenduLe;
-    
     @Column(unique=true)
-    @Getter
     @NonNull
     private Float prixVente;
     

@@ -30,13 +30,13 @@ public class Personne {
     @OneToMany(mappedBy = "client")
     private List<Transaction> achats;
     
-   /* public float budgetArt(int annee) {
+    public float budgetArt(int annee) {
         float budgetAnnuel = 0;
         for (Transaction t : achats) {
-            if (achats.getVenduLe().getYear() == annee) {
-                budgetAnnuel += achats.getPrixVente();
+            if (t.getVenduLe().getYear() == annee) {
+                budgetAnnuel += t.getPrixVente();
             }
         }
         return budgetAnnuel;
-    }*/
+    }
 }

@@ -22,14 +22,12 @@ public class Galerie {
     
     @OneToMany(mappedBy = "galerie")
     private List<Exposition> evenements = new LinkedList<>();
-  /*  
+    
     public float ca() {
         float chiffreAffaire = 0;
         for (Exposition e : evenements) {
-            if (evenements.getDuree().getYear() == annee) {
-                chiffreAffaire += evenements.getPrixVente();
-            }
+            chiffreAffaire += e.ca();
         }
         return chiffreAffaire;
-    }*/
+    }
 }

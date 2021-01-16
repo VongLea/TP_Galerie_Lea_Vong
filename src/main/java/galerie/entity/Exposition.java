@@ -40,4 +40,11 @@ public class Exposition {
     @OneToMany(mappedBy = "lieuDeVente")
     private List<Transaction> ventes = new LinkedList<>();
     
+    public float ca() {
+        float chiffreAffaire = 0;
+        for (Transaction t : ventes) {
+            chiffreAffaire += t.getPrixVente();
+        }
+        return chiffreAffaire;
+    }
 }
