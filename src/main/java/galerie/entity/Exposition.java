@@ -19,7 +19,7 @@ public class Exposition {
     @Id  @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private Integer id;
 
-    @Column(unique=true)
+    @Column
     @NonNull
     private LocalDate debut;
     
@@ -27,7 +27,7 @@ public class Exposition {
     @NonNull
     private String intitule;
     
-    @Column(unique=true)
+    @Column
     @NonNull
     private Integer duree;
     

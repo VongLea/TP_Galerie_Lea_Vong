@@ -26,11 +26,11 @@ public class Tableau {
     @NonNull
     private String support;
     
-    @Column(unique=true)
+    @Column
     @NonNull
     private Integer largeur;
     
-    @Column(unique=true)
+    @Column
     @NonNull
     private Integer longueur;
     

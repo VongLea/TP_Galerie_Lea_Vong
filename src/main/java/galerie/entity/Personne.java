@@ -31,12 +31,12 @@ public class Personne {
     private List<Transaction> achats;
     
     public float budgetArt(int annee) {
-        float budgetAnnuel = 0;
+        float budget = 0;
         for (Transaction t : achats) {
             if (t.getVenduLe().getYear() == annee) {
-                budgetAnnuel += t.getPrixVente();
+                budget += t.getPrixVente();
             }
         }
-        return budgetAnnuel;
+        return budget;
     }
 }

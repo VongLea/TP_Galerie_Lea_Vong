@@ -23,10 +23,12 @@ public class Galerie {
     @OneToMany(mappedBy = "galerie")
     private List<Exposition> evenements = new LinkedList<>();
     
-    public float ca() {
+    public float caAnnuel(int annee) {
         float chiffreAffaire = 0;
         for (Exposition e : evenements) {
-            chiffreAffaire += e.ca();
+            if (e.getDebut().getYear() == annee) {
+                chiffreAffaire += e.ca();
+            }
         }
         return chiffreAffaire;
     }
