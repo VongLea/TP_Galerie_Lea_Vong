@@ -51,4 +51,13 @@ public class ExpositionRepositoryTest {
         assertEquals(budgetTotal, result, "Le chiffre d'affaire n'est pas identique");
     }
     
+    @Test
+    @Sql("test-data.sql")
+    public void testChiffreAffaire1() {
+        log.info("On teste le chiffre d'affaire");
+        float budgetTotal = 130;
+        float expo = expositionDAO.chiffreAffairePour(1);
+        assertEquals(budgetTotal, expo, "Le chiffre d'affaire n'est pas identique");
+    }
+    
 }
