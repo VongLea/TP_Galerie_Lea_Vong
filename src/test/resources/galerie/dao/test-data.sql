@@ -24,9 +24,3 @@ INSERT INTO Exposition_Oeuvres(accrochages_id, oeuvres_id) VALUES (2,2);
 
 INSERT INTO Transaction(id, prix_vente, vendu_le, client_id, lieu_de_vente_id, oeuvre_id) VALUES (1, 123, TO_DATE('2020/01/17', 'YYYY/MM/DD'), 1,1,1);
 INSERT INTO Transaction(id, prix_vente, vendu_le, client_id, lieu_de_vente_id, oeuvre_id) VALUES (2, 7, TO_DATE('2020/01/18', 'YYYY/MM/DD'), 1,1,2);
-/*
-INSERT INTO Transaction(id, vendu_le, prix_vente, client_id, lieu_de_vente_id, oeuvre_id) VALUES (3, TO_DATE('2020/06/17', 'YYYY/MM/DD'), 50, 2,2);
-INSERT INTO Transaction(id, vendu_le, prix_vente, client_id, lieu_de_vente_id, oeuvre_id) VALUES (4, TO_DATE('2020/06/17', 'YYYY/MM/DD'), 20, 2,2);
-INSERT INTO Transaction(id, vendu_le, prix_vente, client_id, lieu_de_vente_id, oeuvre_id) VALUES (5, TO_DATE('2020/06/28', 'YYYY/MM/DD'), 30, 2,2);
-INSERT INTO Transaction(id, vendu_le, prix_vente, client_id, lieu_de_vente_id, oeuvre_id) VALUES (6, TO_DATE('2020/03/28', 'YYYY/MM/DD'), 70, 3,3);
-*/
