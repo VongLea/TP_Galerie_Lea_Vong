@@ -38,7 +38,7 @@ public class TableauController {
      * Affiche toutes les catégories dans la base
      *
      * @param model pour transmettre les informations à la vue
-     * @return le nom de la vue à afficher ('afficheGaleries.html')
+     * @return le nom de la vue à afficher ('afficheTableaux.html')
      */
     @GetMapping(path = "show")
     public String afficheTousLesTableaux(Model model) {
@@ -47,7 +47,7 @@ public class TableauController {
     }
 
     /**
-     * Montre le formulaire permettant d'ajouter une galerie
+     * Montre le formulaire permettant d'ajouter un tableau
      *
      * @param tableau initialisé par Spring, valeurs par défaut à afficher dans le formulaire
      * @return le nom de la vue à afficher ('formulaireTableau.html')
@@ -59,11 +59,11 @@ public class TableauController {
     }
 
     /**
-     * Appelé par 'formulaireTableau.html', méthode POST
+     * Appelé par 'formulaireTableaux.html', méthode POST
      *
-     * @param tableau Une galerie initialisée avec les valeurs saisies dans le formulaire
+     * @param tableau Un tableau initialisée avec les valeurs saisies dans le formulaire
      * @param redirectInfo pour transmettre des paramètres lors de la redirection
-     * @return une redirection vers l'affichage de la liste des galeries
+     * @return une redirection vers l'affichage de la liste des tableaux
      */
     @PostMapping(path = "save")
     public String ajouteLeTableauPuisMontreLaListe(Tableau tableau, RedirectAttributes redirectInfo) {
@@ -80,31 +80,31 @@ public class TableauController {
         }
         // RedirectAttributes permet de transmettre des informations lors d'une redirection,
         // Ici on transmet un message de succès ou d'erreur
-        // Ce message est accessible et affiché dans la vue 'afficheGalerie.html'
+        // Ce message est accessible et affiché dans la vue 'afficheTableaux.html'
         redirectInfo.addFlashAttribute("message", message);
         return "redirect:show"; // POST-Redirect-GET : on se redirige vers l'affichage de la liste		
     }
 
     /**
-     * Appelé par le lien 'Supprimer' dans 'afficheGaleries.html'
+     * Appelé par le lien 'Supprimer' dans 'afficheTableaux.html'
      *
-     * @param tableau à partir de l'id de la galerie transmis en paramètre, Spring fera une requête SQL SELECT pour
+     * @param tableau à partir de l'id du tableau transmis en paramètre, Spring fera une requête SQL SELECT pour
      * chercher le tableau dans la base
      * @param redirectInfo pour transmettre des paramètres lors de la redirection
-     * @return une redirection vers l'affichage de la liste des galeries
+     * @return une redirection vers l'affichage de la liste des tableaux
      */
     @GetMapping(path = "delete")
     public String supprimeUnTableauPuisMontreLaListe(@RequestParam("id") Tableau tableau, RedirectAttributes redirectInfo) {
         String message = "Le tableau '" + tableau.getTitre() + "' a bien été supprimée";
         try {
-            dao.delete(tableau); // Ici on peut avoir une erreur (Si il y a des expositions pour cette galerie par exemple)
+            dao.delete(tableau); // Ici on peut avoir une erreur (Si il y a des expositions pour ce tableau par exemple)
         } catch (DataIntegrityViolationException e) {
-            // violation de contrainte d'intégrité si on essaie de supprimer une galerie qui a des expositions
+            // violation de contrainte d'intégrité si on essaie de supprimer un tableau qui a des expositions
             message = "Erreur : Impossible de supprimer le tableau '" + tableau.getTitre() + "'";
         }
         // RedirectAttributes permet de transmettre des informations lors d'une redirection,
         // Ici on transmet un message de succès ou d'erreur
-        // Ce message est accessible et affiché dans la vue 'afficheGalerie.html'
+        // Ce message est accessible et affiché dans la vue 'afficheTableaux.html'
         redirectInfo.addFlashAttribute("message", message);
         return "redirect:show"; // on se redirige vers l'affichage de la liste
     }
